@@ -1,0 +1,21 @@
+<header class="header">
+   
+     <a href="/" > <img class="header__logo" src="/IMG/PharmacyRizz/pharmacy_rizz_logo_A.png"></a>
+    <nav class="header__nav">
+        <ul class="nav__list">
+            <!--<li><a href="/" class="header__logo"> <img class="header__img" src="/IMG/PharmacyRizz/pharmacy_rizz_logo_A.jpg" /></a></li>-->
+            
+            <li><a href="/" class="<%# isActiveRoute('/',currentRoute) %>">home</a></li>
+            <li><a href="/about" class="<%# isActiveRoute('/about',currentRoute) %>">about</a></li>
+            <li><a href="/contact" class="<%# isActiveRoute('/contact',currentRoute) %>">contact</a></li>
+        </ul>
+
+    </nav>
+
+   <!-- <div class="header__button">
+        <button class="searchBtn" aria-expanded="false">
+            Search
+        </button>
+    </div>
+-->
+</header>

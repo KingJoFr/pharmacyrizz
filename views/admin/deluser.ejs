@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.title %></title>
+    <meta name="description" content="<%= locals.description %>">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" defer src="/js/script.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <a href="/dashboard" class="button">return to dashboard</a>
+        <ul class="article-ul">
+
+            
+
+            <li>
+                <span><%= profile._id %> some text</span>
+                <div class="dot_line"></div>
+                
+        
+                </a>
+            </li>
+             
+    </ul>
+
+        <div class="userd">
+           <form action="/deluser/<%-profile._id%>?_method=DELETE" method="POST">
+            
+            <input type="submit" value="delete" id="sendb" >
+
+            
+           </form>
+           <script>
+            /*   const sndb = document.getElementById("sendb");
+
+
+                sendb.addEventListener("click", getInfo)
+
+                const uname = document.getElementById("username");
+                const baseUrl = "http://localhost:5000/info"
+
+                async function getInfo(e){
+                    e.preventDefault();
+                    const res = await fetch(baseUrl,
+                    {
+                        method: "GET"
+                    })
+
+                    console.log(res);
+                    const data = await res.json();
+                    input.value = data.info
+                
+                }
+
+                async function postInfo(e){
+                    e.preventDefualt();
+                    const res = await fetch(baseUrl + 'james?key=hello',
+                    {
+                    method: 'POST', 
+                    headers:{
+                        "Content-Type": "application/json"
+                    },
+                    body.JSON.stringify({
+                        parcel: input.value
+                    })
+                    })
+                }
+
+
+                
+*/
+           </script>
+        </div>
+       
+        
+    </div>
+     
+</body>
+</html>
