@@ -1,5 +1,5 @@
 require('dotenv').config();
-import cors from "cors";
+const cors=require("cors");
 const express= require('express');
 const expressLayout = require('express-ejs-layouts');
 
