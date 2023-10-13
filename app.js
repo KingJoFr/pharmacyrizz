@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+import cors from "cors";
 const express= require('express');
 const expressLayout = require('express-ejs-layouts');
 
@@ -19,6 +19,7 @@ const PORT = process.env.PORT || 5000;
 //connect to DB
 connectDB();
 
+app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cookieParser());
