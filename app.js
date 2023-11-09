@@ -5,7 +5,7 @@ const expressLayout = require('express-ejs-layouts');
 
 const connectDB = require('./server/config/db');
 const cookieParser = require('cookie-parser');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo').default;
 const bcrypt = require('bcrypt'); // dont store plain text passwords in database
 const jwt = require('jsonwebtoken');
 const session = require('express-session');
