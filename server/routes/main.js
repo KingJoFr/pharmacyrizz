@@ -10,7 +10,7 @@ home
 
 router.get('', async (req,res)=> {
     const locals = {
-        title: "NodeJs Blog",
+        title: "Home",
         description: "Simple blog created node mongo"
     }
     try{
@@ -61,7 +61,7 @@ router.get('/about', (req, res) => {
     
     try{
         const locals = {
-            title: "about ",
+            title: "About ",
             description: " Info about my blog and me",
             currentRoute: '/about'
         }
@@ -79,7 +79,7 @@ router.get('/contact', (req, res) => {
     
     try{
         const locals = {
-            title: "contact",
+            title: "Contact",
             description: " How you can contact me",
             currentRoute: '/contact'
         }
