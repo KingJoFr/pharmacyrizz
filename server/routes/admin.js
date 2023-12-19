@@ -27,9 +27,9 @@ router.get('/info', async (req,res) =>{
 
 // check login
 const authMiddleware = (req, res, next) => {
-    const token = req.cookies.token;
+    const token = req.cookies.token;  // checking if a token exists i believe
 
-    if(!token){
+    if(!token){  //so if there is no token then unauthorized
         return res.status(401).json({message: 'Unauthorized'});
     }
 
@@ -68,10 +68,10 @@ router.post('/admin', async (req,res) =>{
         const {username, password} = req.body;
         const user = await User.findOne({username});
 
-        if(!user){
+        if(!user){  //looks like this is checking if the user exist
             return res.status(401).json({message: 'Invalid Credentials'});
         }
-      
+                    //then here it checks the password
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if(!isPasswordValid){
