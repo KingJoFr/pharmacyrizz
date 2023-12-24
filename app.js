@@ -1,12 +1,13 @@
 // stores keywords/passwords in the dot env file to keep those secret. don't upload dotenv file
 require('dotenv').config();  
 
+
 /*Web browsers prevent unknown websites from accessing your application programming 
 interfaces and services. This way, your server shares its resources only with 
 clients that are on the same domain. However, there are situations where you want 
 to lift this guard or get more fine-grained control over which websites access 
 your server's resources. In such cases, you implement CORS (cross-origin resource sharing) on your server. */
-//const cors=require("cors");  Cors is not in the original Raddy Dev tutorial.I think I put this here because it was a solution to some error on stack overflow
+const cors=require("cors"); // Cors is not in the original Raddy Dev tutorial.I think I put this here because it was a solution to some error on stack overflow
 
 //express makes nodejs easier
 const express= require('express');
@@ -14,7 +15,7 @@ const express= require('express');
 //layouts for ejs Adds layout support to Express
 const expressLayout = require('express-ejs-layouts');
 
-//connects to the mongoose database. connection is actually done in the db.js file in server/config folder
+//connects to the mongo database. connection is actually done in the db.js file in server/config folder
 const connectDB = require('./server/config/db');
 
 /*  cookie-parser: This middleware is used to parse cookies that are sent with HTTP requests. 
@@ -394,6 +395,10 @@ app.locals.isActiveRoute = isActiveRoute;
 
 /*
  I see that he made this path '/' equal to two different things.  So how does it konw which one to go to?
+ also what exactly is require()? 
+ I found: NodeJS provides the require function, 
+ whose job is to load modules and give you access to their exports.
+ from: https://stackoverflow.com/questions/27599614/var-express-requireexpress-var-app-express-what-is-express-is-it#:~:text=Functions%20have%20a%20couple%20of,apply%20%2C%20and%20toString%20for%20instance.&text=You'll%20use%20Node's%20require,argument%20and%20returns%20a%20package.
 */
 app.use('/', require('./server/routes/main'));
 app.use('/', require('./server/routes/admin'));

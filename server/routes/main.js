@@ -1,8 +1,60 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
+const Card = require('../models/Card');
+const uploadCards = require('./insertCardData');
+const Counter = require('../models/Counter')
 
 // routes
+
+
+
+
+// flash cards routes
+router.get('/flashcards', async(req,res)=> {
+    const locals = {
+        title: 'flashcards',
+        descriptions:'my flashcard app'
+    }
+    try{ //id: mongoose.ObjectId('65878f28e436dc72e08e88fe') 
+        let counter = await Counter.findOne({_id:'65878f28e436dc72e08e88fe'});
+        console.log('counter is first time', counter.count)
+        
+        const data = await Card.find();
+        res.render('flashcards',{locals,data,counter});
+    }catch(error){
+        console.log(error);
+    }
+});
+
+router.put('/flashcards', async(req,res)=>{
+     
+    
+    
+    await Counter.findByIdAndUpdate('65878f28e436dc72e08e88fe',{
+        count : req.body.position_num
+    })
+    counter = await Counter.findById('65878f28e436dc72e08e88fe');
+
+    console.log('counter is second time', counter.count)
+    //counter.set({count:{position}});
+    //await counter.save();
+     
+     
+     
+     
+     res.redirect('flashcards');
+})
+
+router.put('/reset', async(req,res)=>{
+    await Counter.findByIdAndUpdate('65878f28e436dc72e08e88fe',{
+        count : req.body.reset
+    })
+    counter = await Counter.findById('65878f28e436dc72e08e88fe');
+    console.log('counter after reset is', counter.count)
+    res.redirect('flashcards');
+})
+
 /*
 get
 home
@@ -12,6 +64,7 @@ router.get('', async (req,res)=> {
     const locals = {
         title: "Home",
         description: "Simple blog created node mongo"
+        
     }
     try{
         const data = await Post.find();
@@ -131,6 +184,7 @@ router.get('/contact', (req, res) => {
     
 });
 
+//uploadCards.insertCardData();
 
 module.exports = router;
 
@@ -154,3 +208,31 @@ module.exports = router;
 
 insertPostData();
 */
+/*
+function insertCardData (){
+    Card.insertMany([
+        {
+            generic: "Celecoxib",
+            brand: "Celebrex"
+        },
+        {
+            generic: "Tadalifil",
+            brand: "Cialis"
+        },
+        {
+            generic: "sildenafil",
+            brand: "Viagra"
+        },
+    ])
+}
+*/
+
+//insertCardData();
+
+function insertCounter(){
+    Counter.create({
+        count: 0
+    })
+};
+
+//insertCounter();
