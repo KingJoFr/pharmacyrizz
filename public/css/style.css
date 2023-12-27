@@ -25,6 +25,7 @@ body{
     --red: #b30000;
     --orange: #f7941d;
     --light-blue: #27aae2;
+    --llight-blue:#dbefff;
     --font-size-base: 1rem;
     --font-size-md: clamp(1.25rem, 0.61vw+1.1rem, 1.58rem);
     --font-size-lg: clamp(1.56rem, 1vw+1.31rem, 2.11rem);
@@ -32,10 +33,217 @@ body{
     --border-radius: 10px;
 }
 
+
+  
+  /* menu icon */
+  
+  
+@media (max-width: 800px){
+    .dot_line{
+        display:none;
+    }
+    .cardContainer{
+        
+        width: 100%;
+    }
+    .card{
+        width: 99%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .header__logo{
+        
+    }
+    .header_nav{
+        
+        
+        display:none;
+    }
+    .mobileHeader {
+    
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      
+    .hamburger {
+        background-color: var(--light-blue);
+        border-color: transparent;
+        display: block;
+      }
+    .header{
+        display:flex;
+        width: 100%;
+        flex-direction: column;
+        padding: 20px;
+          
+    }
+    
+      .header_nav ul{
+        font-size : 14px;
+        width: 100px;
+        height: fit-content;
+        display:grid;
+        
+     
+        list-style-type: none;
+        column-gap: 20px;
+        padding: 0;
+      }
+      .header_nav ul a{
+        
+        display: inline-block;
+        
+        list-style-type: none;
+        row-gap: 40px;
+        column-gap: 0;
+      }
+      .main{
+        padding: 0px;
+    }
+     
+}
+@media  (min-width: 801px) {
+    .hamburger {
+        display: none;
+      }
+    .header_nav {
+      display: block !important;
+    }
+    .header_nav ul{
+        display: flex;
+    }
+    .cardContainer{
+    margin: 50px auto;
+    }
+    .card{
+        margin: 0 auto;
+        padding: 20px;
+
+        width: 75%;
+    }
+    .main{
+        margin-top: 50px;
+    padding: 20px 150px;
+
+    }
+    
+  }
+
+
+
+/*<button class="button-48" role="button"><span class="text">Button 48</span></button>*/
+
+/* CSS */
+
+.button-48 {
+
+  border:2px solid var(--orange);
+  border-radius: 5px;
+  height: 50px;
+  width: 100px;
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 0;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Clarkson,Helvetica,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1em;
+  margin: 0;
+  opacity: 1;
+  outline: 0;
+  /*padding: 1.5em 2.2em;*/
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-rendering: geometricprecision;
+  text-transform: uppercase;
+  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-48:before {
+    border:2px solid var(--orange);
+    border-radius: 5px;
+  animation: opacityFallbackOut .5s step-end forwards;
+  backface-visibility: hidden;
+  background-color: #EBEBEB;
+  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+  width: 100%;
+}
+
+.button-48:hover:before {
+    
+  animation: opacityFallbackIn 0s step-start forwards;
+  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+}
+
+.button-48:after {
+  background-color: #FFFFFF;
+}
+
+.button-48 span {
+  z-index: 1;
+  position: relative;
+}
+
+.cardContainer{
+    
+    align-content: center;
+    
+ 
+    width: 100%;
+   
+
+}
+.cardBtns{
+    align-items: start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+   
+   
+}
+.cardInner{
+    gap: 20px;
+    
+}
 .card{
-    width: 500px;
-    height: 500px;
-    background-color: var(--light-grey);
+    border-color: var(--light-blue);
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    grid-template-rows: 1.5fr 1fr;
+    text-align: center;
+    
+    display: grid;
+    
+    height: 400px;
+    background-color: var(--llight-blue);
+}
+.generic{
+    color: var(--light-grey)
+    background-color: var(--light-blue)
+}
+.brand{
+    color: var(--light-grey)
+    background-color: var(--orange)
 }
 .dot_line{
     width: 100%;
@@ -100,7 +308,7 @@ textarea {
 }
 .atbody{
   margin: 0;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
   width: 100%;
   box-sizing: content-box;
   padding: 0;
@@ -123,9 +331,7 @@ textarea {
 }
 
 .main{
-    margin-top: 50px;
-    padding: 20px 150px;
-
+    
 }
 
 .hero-image{
@@ -162,13 +368,13 @@ textarea {
     align-items: center;
     justify-content: right;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 100px;
+    /*grid-template-rows: 100px;*/
     padding-top: 10px;
     grid-template-areas:
     "logo button"
     "menu menu"
     ;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 /*@media only screen and (min-width: 768px){
@@ -232,37 +438,38 @@ textarea {
     color: var(--black);
 }
 */
-.header__button button:hover{
+.header_button button:hover{
     border: 2px solid var(--black);
 }
 
 /*header -> navigation*/
 
-.header__nav{
+.header_nav{
     width: 100%;
     margin: 0;
 }
-.header__nav ul{
-    list-style-type: none;
-    display: flex;
+
+.header_nav ul{
+    list-style: none;
+    
     gap: 1rem;
-    font-weight: 600;
+    /*font-weight: 600;*/
     padding: auto 10px;
 }
 
-.header__nav ul a{
+.header_nav ul a{
     padding: 10px;
     text-decoration: none;
 }
 
-.header__nav ul a:hover{
+.header_nav ul a:hover{
     text-decoration: underline;
     text-decoration-color: var(--orange);
     text-underline-offset: 4px;
     text-decoration-thickness: 4px;
 }
 
-.header__nav ul a.active{
+.header_nav ul a.active{
     color: var(--gray);
 }
 

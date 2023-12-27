@@ -63,7 +63,7 @@ home
 router.get('', async (req,res)=> {
     const locals = {
         title: "Home",
-        description: "Simple blog created node mongo"
+        description: "Pharmacyrizz.com a website for pharmacy techs"
         
     }
     try{
@@ -90,7 +90,7 @@ router.get('/post/:id', async (req,res)=> {
         
         const locals = {
         title: data.title,
-        description: "Simple blog created node mongo",
+        description: "A website for pharmacy techs",
         currentRoute: '/post'
     }
    
@@ -115,7 +115,7 @@ router.get('/about', (req, res) => {
     try{
         const locals = {
             title: "About ",
-            description: " Info about my blog and me",
+            description: " Info about this site",
             currentRoute: '/about'
         }
       
@@ -154,7 +154,7 @@ router.get('/contact', (req, res) => {
     try{
     const locals = {
         title: "Search",
-        description: "Simple blog created node mongo"
+        description: "search"
     }
     
     let searchTerm = req.body.searchTerm;
