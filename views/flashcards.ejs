@@ -1,0 +1,153 @@
+<!--trying to create a flashcard application I ran into a number of roadblocks
+    The idea was to put a list of cards in mongodb.
+    I would create a button that goes through the cards one at a time
+    At the top of the card would be the generic name
+    below that would be the brand name but with visibility set to hidden
+    a button would reveal the brand name
+
+    The issue was creating a variable that would persist. or rather create a button that would do 2 things
+    I needed to create an input button that now only submitted the form information but
+    also called a function to incrememnt a variable to go through the card deck.
+    I could do this with 2 buttons one to increment and one to submit
+    but when I try to increment with the submit button the variable is reset. or rather
+    when I hit the submit button in both cases the variable is reset.
+    After researching there seems to be a number of solutions.
+    
+    localStorage, sessionStorage, or storing a variable in the database
+    localStorage is permanent on the users computer I believe
+    sessionStorage is temporary on the users computer
+    and the database is permanent of course
+
+
+    Where I learned about localStorage
+    https://stackoverflow.com/questions/56123173/how-to-make-a-js-counter-permanently-retain-the-number-of-counts
+
+    I decided to try sessionStorage, but it seemed that the number wasn't changing as I expected.  I thought maybe it was submitting
+    before it was doing the increment function.  I looked it up and it seems that is what it does but you can prevent this.
+    I found a solution here: https://stackoverflow.com/questions/8053394/how-to-do-something-before-on-submit
+    I still seemed to have the problem of sessionStorage/ localStorage resetting.  I decided to use the database to store the variable
+    I implemented a function that iterates the variable and another to reset it to 0
+    
+    to keep scroll position
+    https://stackoverflow.com/questions/17642872/refresh-page-and-keep-scroll-position
+-->
+
+
+<body>
+    <center><h1>Top 200 Drugs</h1></center>
+    <div class="dot_line"></div>
+    <div class = 'cardContainer'>
+        
+        <div class="card">
+        
+        
+            <div class="cardInner" id = "cardInner">
+            
+                 <p id ="drug_class">Class: <%=data[counter.count].dea_class %></p> 
+                 <p id ="generic" >Generic: <%= data[counter.count].generic %></p>
+                 <p id ="brand" >Brand: <%= data[counter.count].brand %></p>
+            
+                
+            </div>
+        
+        
+    
+            <!--next button show button and reset button-->
+            <div class="cardBtns">
+                
+                
+
+                
+        
+                <form action="/reset?_method=PUT" method="POST" id = "resetForm">
+                    <input type = 'text' id = 'reset' name = 'reset' value = 0>
+                    <button type = 'submit' value="reset" class="button-48" >reset</button>
+                </form>
+
+                <form id ="fillerForm">
+                <input type = 'text'id='filler'>
+                <button id ='show' class = 'button-48' onClick = 'show_card()'>reveal</button> 
+                </form>
+
+
+                <form action="/flashcards?_method=PUT" method="POST" id ="myform">
+                    <input type="text" name = 'position_num' id = 'position' value = '<%= counter.count %>' >
+                    <button type="submit" value ="next" class = 'button-48' onClick="beforeSub()" role="button">next</button>
+                </form>
+
+
+            </div>
+            
+        </div>
+    </div>
+
+
+    <!--javascript starts here-->
+    <script type = "text/javascript">
+         let reset = document.getElementById('reset')
+        reset.style.visibility ='hidden'
+        let position = document.getElementById('position')
+        position.style.visibility ='hidden'
+         let brand = document.getElementById('brand');
+         brand.style.visibility = 'hidden';
+         let filler = document.getElementById('filler');
+         filler.style.visibility = 'hidden';
+        let fillerform = document.getElementById('fillerForm');
+        let myForm = document.getElementById('myform')
+        
+        function beforeSub(){
+            
+           
+            myForm.addEventListener('click', function(e){
+               
+                e.preventDefault();
+             
+                increment_i();
+                myForm.submit();
+            });
+        };
+        
+        function stopSub(){
+            fillerform.addEventListener('click',function(e){
+                e.preventDefault();
+                
+            })
+        }
+        function increment_i(){
+           
+
+            position_num = document.getElementsByName('position_num')[0];
+            counter = parseInt(position_num.value)
+            console.log('before increment', position_num.value)
+            position_num.value= counter + 1
+            console.log('after increment',position_num.value)
+    }
+
+        function show_card(){
+            stopSub();
+            brand = document.getElementById('brand');
+            if (brand.style.visibility =='hidden'){
+                brand.style.visibility = 'visible'
+            } else{
+                brand.style.visibility = 'hidden'
+            }
+            
+        }
+        
+        document.addEventListener("DOMContentLoaded", function (event) {
+        var scrollpos = sessionStorage.getItem('scrollpos');
+        if (scrollpos) {
+            window.scrollTo(0, scrollpos);
+            sessionStorage.removeItem('scrollpos');
+        }
+    });
+
+    window.addEventListener("beforeunload", function (e) {
+        sessionStorage.setItem('scrollpos', window.scrollY);
+    });
+    //const nextButton = document.getElementById('next')
+    //nextButton.addEventListener('click', increment_i())
+    </script>
+     
+    
+</body>

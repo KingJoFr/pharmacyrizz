@@ -1,0 +1,201 @@
+Levothyroxine	Synthroid	Hormone replacement	-
+Hydrocodone/APAP	Vicodin	Analgesic	C-II
+Amoxicillin	Amoxil	Antibiotic	-
+Lisinopril	Prinivil	Antihypertensive	-
+Esomeprazole	Nexium	Antacid (PPI)	-
+Atorvastatin	Lipitor	Cholesterol lowering	-
+Simvastatin	Zocor	Cholesterol lowering	-
+Clopidogrel	Plavix	Anticoagulant	-
+Montelukast	Singulair	Anti-asthmatic	-
+Rosuvastatin	Crestor	Cholesterol lowering	-
+Metoprolol	Lopressor	Antihypertensive	-
+Escitalopram	Lexapro	Antidepressant	-
+Azithromycin	Zithromax	Antibiotic	-
+Albuterol	ProAir HFA	Anti-asthmatic	-
+Hydrochlorothiazide	HCTZ	Diuretic	-
+Metformin	Glucophage	Antidiabetic	-
+Sertraline	Zoloft	Antidepressant	-
+Ibuprofen	Advil	Analgesic (NSAID)	-
+Zolpidem	Ambien	Sleep aid	C-IV
+Furosemide	Lasix	Diuretic	-
+Omeprazole	Prilosec	Antacid (PPI)	-
+Trazodone	Desyrel	Antidepressant	-
+Valsartan	Diovan	Antihypertensive	-
+Tramadol	Ultram	Analgesic	C-IV
+Duloxetine	Cymbalta	Antidepressant	-
+Warfarin	Coumadin	Anticoagulant	-
+Amlodipine	Norvasc	Antihypertensive	-
+Oxycodone/APAP	Percocet	Analgesic	C-II
+Quetiapine	Seroquel	Antipsychotic	-
+Promethazine	Phenergan	Antihistamine	-
+Fluticasone	Flonase	Antihistamine	-
+Alprazolam	Xanax	Antianxiety	C-IV
+Clonazepam	Klonopin	Antianxiety	C-IV
+Benazepril	Lotensin	Antihypertensive	-
+Meloxicam	Mobic	Analgesic (NSAID)	-
+Citalopram	Celexa	Antidepressant	-
+Cephalexin	Keflex	Antibiotic	-
+Tiotropium	Spiriva	C.O.P.D.	-
+Gabapentin	Neurontin	Anticonvulsant	-
+Aripiprazole	Abilify	Antipsychotic	-
+Potassium	K-Tab	Electrolyte	-
+Cyclobenzaprine	Flexeril	Muscle Relaxer	-
+Methylprednisolone	Medrol	Anti-inflammatory steriod	-
+Methylphenidate	Concerta	ADHD	C-II
+Fexofenadine	Allegra	Antihistamine	-
+Carvedilol	Coreg	Antihypertensive	-
+Carisoprodol	Soma	Muscle Relaxer	C-IV
+Digoxin	Lanoxin	Congestive Heart Failure	-
+Memantine	Namenda	Antidementia	-
+Atenolol	Tenormin	Antihypertensive	-
+Diazepam	Valium	Antianxiety	C-IV
+Oxycodone	OxyContin	Analgesic	C-II
+Risedronate	Actonel	Osteoporosis	-
+Folic Acid	Folvite	Supplement	-
+Olmesartan	Benicar	Antihypertensive	-
+Prednisone	Deltasone	Anti-inflammatory steriod	-
+Doxycycline	Vibramycin	Antibiotic	-
+Alendronate	Fosamax	Osteoporosis	-
+Pantoprazole	Protonix	Antacid (PPI)	-
+Tamsulosin	Flomax	Urinary retention	-
+Triamterene/HCTZ	Dyazide	Diuretic	-
+Paroxetine	Paxil	Antidepressant	-
+Buprenorphine / Naloxone	Suboxone	Opioid Addiction	C-III
+Enalapril	Vasotec	Antihypertensive	-
+Lovastatin	Mevacor	Cholesterol lowering	-
+Pioglitazone	Actos	Antidiabetic	-
+Pravastatin	Pravachol	Cholesterol lowering	-
+Fluoxetine	Prozac	Antidepressant	-
+Insulin Detemir	Levemir	Antidiabetic	-
+Fluconazole	Diflucan	Antifungal	-
+Levofloxacin	Levaquin	Antibiotic	-
+Rivaroxaban	Xarelto	Anticoagulant	-
+Celecoxib	Celebrex	Analgesic (NSAID)	-
+Codeine / APAP	Tylenol #3	Analgesic	C-III
+Mometasone	Nasonex	Antihistamine	-
+Ciprofloxacin	Cipro	Antibiotic	-
+Pregabalin	Lyrica	Anticonvulsant	-
+Insulin Aspart	Novolog	Antidiabetic	-
+Venlafaxine	Effexor	Antidepressant	-
+Lorazepam	Ativan	Antianxiety	C-IV
+Ezetimibe	Zetia	Cholesterol lowering	-
+Estrogen	Premarin	Hormone replacement	-
+Allopurinol	Zyloprim	Antigout	-
+Penicillin	Pen VK	Antibiotic	-
+Sitagliptin	Januvia	Antidiabetic	-
+Amitriptyline	Elavil	Antidepressant	-
+Clonidine	Catapres	Antihypertensive	-
+Latanoprost	Xalatan	Antiglaucoma	-
+Lisdexamfetamine	Vyvanse	ADHD	C-II
+Niacin	Niaspan	Cholesterol lowering	-
+Naproxen	Aleve	Analgesic (NSAID)	-
+Dexlansoprazole	Dexilant	Antacid (PPI)	-
+Glyburide	Diabeta	Antidiabetic	-
+Olanzapine	Zyprexa	Antipsychotic	-
+Tolterodine	Detrol	Incontinence	-
+Ranitidine	Zantac	Antacid (H2)	-
+Famotidine	Pepcid	Antacid (H2)	-
+Diltiazem	Cardizem	Antihypertensive	-
+Insulin Glargine	Lantus	Antidiabetic	-
+Thyroid	Armour Thyroid	Hormone replacement	-
+Bupropion	Wellbutrin	Antidepressant	-
+Cetirizine	Zyrtec	Antihistamine	-
+Topiramate	Topamax	Anticonvulsant	-
+Valacyclovir	Valtrex	Antiviral	-
+Eszopiclone	Lunesta	Sleep Aid	C-IV
+Acyclovir	Zovirax	Antiviral	-
+Cefdinir	Omnicef	Antibiotic	-
+Clindamycin	Cleocin	Antibiotic	-
+Colchicine	Colcrys	Antigout	-
+Gemfibrozil	Lopid	Cholesterol lowering	-
+Guiafenesin	Robitussin	Expectorant	-
+Glipizide	Glucotrol	Antidiabetic	-
+Irbesartan	Avapro	Antihypertensive	-
+Metoclopramide	Reglan	Antispasmodic	-
+Losartan	Cozaar	Antihypertensive	-
+Meclizine	Dramamine	Antiemetic	-
+Metronidazole	Flagyl	Antibiotic	-
+Vitamin D	Caltrate	Supplement	-
+Testosterone	AndroGel	Hormone replacement	C-III
+Ropinirole	Requip	Anti-Parkinson's	-
+Risperidone	Risperdal	Antipsychotic	-
+Olopatadine	Patanol	Antihistamine	-
+Moxifloxacin	Avelox	Antibiotic	-
+Dexmethylphenidate	Focalin	ADHD	C-II
+Enoxaparin	Lovenox	Anticoagulant	-
+Fentanyl	Duragesic	Analgesic	C-II
+Dicyclomine	Bentyl	Antispasmodic	-
+Bisoprolol	Zebeta	Antihypertensive	-
+Atomoxetine	Strattera	ADHD	-
+Ramipril	Altace	Antihypertensive	-
+Temazepam	Restoril	Sleep Aid	C-IV
+Phentermine	Adipex P	Appetite suppressant	C-IV
+Quinapril	Accupril	Antihypertensive	-
+Sildenafil	Viagra	Erectile dysfunction	-
+Ondansetron	Zofran	Antiemetic	-
+Oseltamivir	Tamiflu	Antiviral	-
+Methotrexate	Rheumatrex	Antirheumatic	-
+Dabigatran	Pradaxa	Anticoagulant	-
+Budesonide	Uceris	Anti-inflammatory	-
+Doxazosin	Cardura	Urinary retention	Antihypertensive	-
+Desvenlafaxine	Pristiq	Antidepressant	-
+Insulin Lispro	Humalog	Antidiabetic	-
+Clarithromycin	Biaxin	Antibiotic	-
+Buspirone	Buspar	Antianxiety	-
+Finasteride	Proscar	Antihypertensive	-
+Ketoconazole	Nizoral	Antifungal	-
+Solifenacin	VESIcare	Bladder relaxant	-
+Methadone	Dolophine	Opioid addiction	C-II
+Minocycline	Minocin	Antibiotic	-
+Phenazopyridine	Pyridium	Analgesic (urinary)	-
+Spironolactone	Aldactone	Diuretic	-
+Vardenafil	Levitra	Erectile dysfunction	-
+Clobetasol	Clovate	Anti-inflammatory steriod	-
+Benzonatate	Tessalon	Antitussive (cough suppressant)	-
+Divalproex	Depakote	Anticonvulsant	-
+Dutasteride	Avodart	Antihypertensive	-
+Febuxostat	Uloric	Antigout	-
+Lamotrigine	Lamictal	Antiepileptic	-
+Nortriptyline	Pamelor	Antidepressant	-
+Roflumilast	Daliresp	C.O.P.D.	-
+Rabeprazole	Aciphex	Antacid (PPI)	-
+Etanercept	Enbrel	Anti-arthritic	-
+Nebivolol	Bystolic	Antihypertensive	-
+Nabumetone	Relafen	Analgesic (NSAID)	-
+Nifedipine	Procardia	Antihypertensive	-
+Nitrofurantoin	Macrobid	Antibiotic	-
+Nitroglycerine	NitroStat SL	Anti-angina	-
+Oxybutynin	Ditropan	Incontinence	-
+Tadalifil	Cialis	Erectile dysfunction	-
+Triamcinolone	Kenalog	Anti-inflammatory steriod	-
+Rivastigmine	Exelon	Antidementia	-
+Lansoprazole	Prevacid	Antacid (PPI)	-
+Cefuroxime	Ceftin	Antibiotic	-
+Methocarbamol	Robaxin	Muscle Relaxer	-
+Travoprost	Travatan	Antiglaucoma	-
+Lurasidone	Latuda	Antipsychotic	-
+Terazosin	Hytrin	Antihypertensive	-
+Sumatriptan	Imitrex	Antimigraine	-
+Raloxifene	Evista	Osteoporosis	-
+Mirtazepine	Remeron	Antidepressant	-
+Adalimumab	Humira	Immunosuppressant	-
+Benztropine	Cogentin	Anti-Parkinson's	-
+Baclofen	Gablofen		-
+Hydralazine	Apresoline	Antihypertensive	-
+Mupirocin	Bactroban	Antibiotic	-
+Propranolol	Inderal	Antihypertensive	-
+Varenicline	Chantix	Anti-smoking	-
+Verapamil	Verelan	Antihypertensive	-
+Clotrimazole	Lotrimin	Antifungal	-
+Phenytoin	Dilantin	Anticonvulsant	-
+Pramipexole	Mirapex	Anti-Parkinson's	-
+Liraglutide	Victoza	Antidiabetic	-
+Ticagrelor	Brilinta	Anticoagulant	-
+Diclofenac	Voltaren	Analgesic (NSAID)	-
+Saxagliptin	Onglyza	Antidiabetic	-
+Lomitapide	Juxtapid	Cholesterol lowering	-
+Tizanidine	Zanaflex	Muscle Relaxer	-
+Amphetamine/Dextroamphetamine	Adderall	ADHD	C-II
+Zoster Vaccine	Zostavax	Shingles Vaccine	-
+Ezetimibe	Zetia	Cholesterol lowering	-
+Simvastatin	Vytorin	Cholesterol lowering	-
