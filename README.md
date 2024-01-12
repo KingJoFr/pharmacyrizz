@@ -9,3 +9,11 @@ I welcome any and all contributions! Here are some ways you can get started:
 2. Contribute code: If you are a developer and want to contribute I would really appreciate it.
 3. Suggestions: If you don't want to code but have some awesome ideas, open up an issue explaining what you would like to see. Or if you want to write an article even better.
 4. Documentation: If you see the need for some additional documentation, feel free to add some.
+
+
+#Features to Add
+1. Pharmacy Math for techs
+2. Spanish for the Pharmacy
+3. Rx Input Simulation
+4. Contact form for updates
+5. AI chatbot for The Pharmacy Technician book
