@@ -229,10 +229,10 @@ function insertCardData (){
 
 //insertCardData();
 
-function insertCounter(){
+/*function insertCounter(){
     Counter.create({
         count: 0
     })
 };
-
+*/
 //insertCounter();
