@@ -17,25 +17,36 @@ router.get('/flashcards', async(req,res)=> {
         descriptions:'my flashcard app'
     }
     try{ //id: mongoose.ObjectId('65878f28e436dc72e08e88fe') 
-        let counter = await Counter.findOne({_id:'65878f28e436dc72e08e88fe'});
+        let counter = await Counter.findOne({_id:'65c135c702cac41f7abf9a49'});
         console.log('counter is first time', counter.count)
         
         const data = await Card.find();
+        //const lastCard = await Card.find().sort({$natural:-1}).limit(1);
         res.render('flashcards',{locals,data,counter});
     }catch(error){
         console.log(error);
-    }
-});
+
+}});
 
 router.put('/flashcards', async(req,res)=>{
-     
-    
-    
-    await Counter.findByIdAndUpdate('65878f28e436dc72e08e88fe',{
+
+    const data = await Card.find();
+    const lastCard = await Card.find().sort({$natural:-1}).limit(1);
+    const counter = await Counter.findById('65c135c702cac41f7abf9a49');
+    const currentCard = data[counter.count];
+
+    //resets the count to zero if user reaches the last card and presses next
+    if (counter.count >= 200){
+        await Counter.findByIdAndUpdate('65c135c702cac41f7abf9a49',{
+                count : 0
+    })
+
+    }else{
+    await Counter.findByIdAndUpdate('65c135c702cac41f7abf9a49',{
         count : req.body.position_num
     })
-    counter = await Counter.findById('65878f28e436dc72e08e88fe');
-
+}
+    
     console.log('counter is second time', counter.count)
     //counter.set({count:{position}});
     //await counter.save();
@@ -44,6 +55,14 @@ router.put('/flashcards', async(req,res)=>{
      
      
      res.redirect('flashcards');
+})
+
+router.put('/skip',async(req,res)=>{
+    const skipNumber = req.body.skipNumber;
+    await Counter.findByIdAndUpdate('65c135c702cac41f7abf9a49',{
+        count : skipNumber
+    })
+    res.redirect('flashcards');
 })
 
 router.put('/reset', async(req,res)=>{
@@ -234,5 +253,6 @@ function insertCardData (){
         count: 0
     })
 };
+
+insertCounter();
 */
-//insertCounter();

@@ -47,7 +47,7 @@
                  <p id ="drug_use">Use: <%=data[counter.count].use %></p> 
                  <p id ="generic" >Generic: <%= data[counter.count].generic %></p>
                  <p id ="brand" >Brand: <%= data[counter.count].brand %></p>
-            
+                 
                 
             </div>
         
@@ -74,8 +74,14 @@
                 <form action="/flashcards?_method=PUT" method="POST" id ="myform">
                     <input type="text" name = 'position_num' id = 'position' value = '<%= counter.count %>' >
                     <button type="submit" value ="next" class = 'button-48' onClick="beforeSub()" role="button">next</button>
+                   
                 </form>
-
+                <!--
+                <form action="/skip?_method=PUT" method ="POST">
+                    <input type="number" name="skipNumber">
+                    <button type ="submit" value='skip'>skip</button>
+                </form>
+            -->
 
             </div>
             
