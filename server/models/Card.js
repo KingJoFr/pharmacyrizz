@@ -22,6 +22,10 @@ const CardSchema = new Schema({
     dea_class:{
         type: String,
         required: false
+    },
+    form:{
+        type: String,
+        required: false
     }
 
 });
