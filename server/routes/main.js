@@ -4,7 +4,7 @@ const Post = require('../models/Post');
 const Card = require('../models/Card');
 const uploadCards = require('./insertCardData');
 const Counter = require('../models/Counter')
-
+global.countId = '65c135c702cac41f7abf9a49'
 // routes
 
 
@@ -17,7 +17,7 @@ router.get('/flashcards', async(req,res)=> {
         descriptions:'my flashcard app'
     }
     try{ //id: mongoose.ObjectId('65878f28e436dc72e08e88fe') 
-        let counter = await Counter.findOne({_id:'65c135c702cac41f7abf9a49'});
+        let counter = await Counter.findOne({_id:countId});
         console.log('counter is first time', counter.count)
         
         const data = await Card.find();
@@ -32,17 +32,17 @@ router.put('/flashcards', async(req,res)=>{
 
     const data = await Card.find();
     const lastCard = await Card.find().sort({$natural:-1}).limit(1);
-    const counter = await Counter.findById('65c135c702cac41f7abf9a49');
+    const counter = await Counter.findById(countId);
     const currentCard = data[counter.count];
 
     //resets the count to zero if user reaches the last card and presses next
     if (counter.count >= 200){
-        await Counter.findByIdAndUpdate('65c135c702cac41f7abf9a49',{
+        await Counter.findByIdAndUpdate(countId,{
                 count : 0
     })
 
     }else{
-    await Counter.findByIdAndUpdate('65c135c702cac41f7abf9a49',{
+    await Counter.findByIdAndUpdate(countId,{
         count : req.body.position_num
     })
 }
@@ -59,17 +59,17 @@ router.put('/flashcards', async(req,res)=>{
 
 router.put('/skip',async(req,res)=>{
     const skipNumber = req.body.skipNumber;
-    await Counter.findByIdAndUpdate('65c135c702cac41f7abf9a49',{
+    await Counter.findByIdAndUpdate(countId,{
         count : skipNumber
     })
     res.redirect('flashcards');
 })
 
 router.put('/reset', async(req,res)=>{
-    await Counter.findByIdAndUpdate('65878f28e436dc72e08e88fe',{
+    await Counter.findByIdAndUpdate(countId,{
         count : req.body.reset
     })
-    counter = await Counter.findById('65878f28e436dc72e08e88fe');
+    counter = await Counter.findById(countId);
     console.log('counter after reset is', counter.count)
     res.redirect('flashcards');
 })

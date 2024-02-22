@@ -21,7 +21,7 @@ fields =['generic','brand','use','dea_class']
 with open(filename) as df:
      
  
-     # count variable for employee id creation
+     # count variable for id creation
     l = 1
     
 
