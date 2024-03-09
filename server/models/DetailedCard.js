@@ -5,8 +5,8 @@ const mongoose= require('mongoose');
 
 
 const Schema = mongoose.Schema;
-const CardSchema = new Schema({
-   
+const DCardSchema = new Schema({
+   //first 4 properties are for the flashcard app.
     generic: {
         type: String,
         required: false
@@ -23,20 +23,20 @@ const CardSchema = new Schema({
         type: String,
         required: false
     },
+
+    //these properties will be used to generate the random sig
     form:{
         type: String,
         required: false
     },
-    action:{
-        type: String,
-        required: false
-
-    },
     route:{
         type: String,
         required: false
-    }
+    },
+    
 
-});
+}, {strict: false});
+/* removed action from schema.  That can be decided programatically based on route.
+  If it is oral action is take, if intramuscullar action is inject etc*/
 
-module.exports = mongoose.model('Card', CardSchema);
+module.exports = mongoose.model('DCard', DCardSchema);

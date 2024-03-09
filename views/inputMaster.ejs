@@ -45,7 +45,7 @@ console.log('the date in millis',millis);
     
   </head>
   <body>
-    <center><h1>Input Master v0.5</h1></center>
+    <center><h1>Input Master v0.6</h1></center>
     <div class="dot_line"></div>
     <div class="allChecks">
     <p>pt check: <%=patientCheckMessage%></p>
@@ -82,12 +82,9 @@ console.log('the date in millis',millis);
           </div>
           <div class="formUnit">
             <label for="inputSig">Sig
-            <select class="inputSig" name="inputSig" id="inputSig" >
-              <option>Take 1 by mouth daily</option>
-              <option>Take 1 by mouth twice daily</option>
-              
-            </select>
-            </label>
+              <input class="inputSig" name="inputSig" id="inputSig" >
+                
+              </label>
           </div>
           <div class="formUnit">
             <label for="inputProvider">Provider
@@ -108,24 +105,24 @@ console.log('the date in millis',millis);
             </label>
           </div>
          
-          <input type="text" name='medChecker' class="checker" value="<%-medsList[medIndex] %>" />
-          <input type="text" class="checker" name="nameChecker" value="<%-nameList[icounter.icount]['name']%>" />
-          <input type="number" class="checker" name="medIndex" value="<%-medIndex%>" />
+          <input type="text" name='medChecker' class="checker" value="<%-card.generic %>" />
+          <input type="text" class="checker" name="nameChecker" value="<%-nameList[1]%>" />
+          <input type="number" class="checker" name="medIndex" value="<%#-medIndex%>" />
           <input type="number" class="checker" name="quantityChecker" value="<%=quantity%>" />
           <input type="text" class="checker" name="sigChecker" value="<%=sig%>" />
-          <input type="text" class="checker" name="providerChecker" value="<%=nameList[providerIndex]['name']%>" />
+          <input type="text" class="checker" name="providerChecker" value="<%=nameList[1]%>" />
           <input type="number" class="checker" name="providerIndex" value="<%=providerIndex%>" />
 
          
         </form>
         
         <div class="rxContainer">
-          <p>Patient: <%-nameList[icounter.icount]['name']%></p><br />
+          <p>Patient: <%-nameList[1]%></p><br />
            <!--<p>Birth Date:<%#=nameList[icounter.icount]['birthday']%></p><br />-->
-           <p>Medication: <%=medsList[medIndex] %></p><br />
+           <p>Medication: <%=card.generic %></p><br />
            <p >Quantity: <%=quantity%></p><br />
            <p>Sig: <%=sig%></p><br />
-           <p>Provider: <%=nameList[providerIndex]['name']%></p><br />
+           <p>Provider: <%=nameList[providerIndex]%></p><br />
            <p>NPI: 10********</p><br />
            <p>DEA: TL*******</p><br />
            <div class="submitctn">
@@ -162,7 +159,7 @@ console.log('the date in millis',millis);
         }
     });
     
-    function beforeSub(){
+    function beforeSub(){ // this is to increment the counter before submitting
             console.log('inside beforesub')
       const myForm = document.getElementById('myform');
             myForm.addEventListener('click', function(e){
@@ -183,20 +180,20 @@ console.log('the date in millis',millis);
            console.log('after increment',position_num.value)
    }
 
-   const meds = JSON.parse('<%-JSON.stringify(medsList) %>')
-   console.log('meds',meds);
+   const meds =  [<%-medsList%>]
+   
 
-   const names = JSON.parse('<%-JSON.stringify(nameList) %>');
+   const names = [<%-nameList %>]
    var resultNames = [];
 
 
 
-for(var i in names){
+/*for(var i in names){
     resultNames.push(names[i].name);
 }
     console.log( 'result is',resultNames);
     console.log('result 1 is',resultNames[1]);
-
+*/
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -293,9 +290,9 @@ document.addEventListener("click", function (e) {
     closeAllLists(e.target);
 });
 }
-autocomplete(document.getElementById("patient"), resultNames);
+autocomplete(document.getElementById("patient"), names);
 autocomplete(document.getElementById('meds'), meds);
-autocomplete(document.getElementById('inputProvider'), resultNames)
+autocomplete(document.getElementById('inputProvider'), names)
    /* const submit = document.getElementById("submit");
     console.log('inside script')
     submit.addEventListener("click", validate);

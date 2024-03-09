@@ -10,7 +10,7 @@ import json
 import re 
 
 # the file to be converted
-filename = 'BrandGenericList.txt'
+filename = 'Cardjsontest'
  
 # resultant dictionary
 DrugDict = {}

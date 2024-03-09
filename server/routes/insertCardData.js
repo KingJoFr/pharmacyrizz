@@ -10,7 +10,10 @@ function insertCardData(){
                 "generic": "Levothyroxine",
                 "brand": "Synthroid",
                 "use": "Hormone replacement",
-                "dea_class": "-"
+                "dea_class": "-",
+                "form":"pill",
+                "action":"take",
+                "route":"by mouth"
             },
             {
                 "generic": "Hydrocodone/APAP",
