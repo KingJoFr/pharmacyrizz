@@ -110,7 +110,7 @@ async function getCard(){
 }
 
 async function getMedsList(){
-    const meds = await Card.find();
+    const meds = await MergedDeck.find();
     let medsList = [];
      for(let i in meds){
         medsList.push(`'${meds[i].brand}' `) //funky formating to get each medication with quotes for the array
@@ -129,10 +129,11 @@ function getQuantity(){
 function getRandNum(num, getZeroes = 1){
     return Math.floor(Math.random()*num * getZeroes);
 }
-function checker(input, checker){
-
+function checker(input, checker){ 
+    console.log('in checker');
+    console.log(input,"\n",checker)
     const stripChecker = checker.replaceAll("'","")
-   
+    console.log(input,'\n',checker)
     if (input == stripChecker){
         return 'pass'
     }else{
@@ -152,6 +153,8 @@ function sigCheckerFunct (inputSig,sigChecker){
 
 async function getNameList(){
     const names = await RName.find();
+    const len = await RName.countDocuments();
+    console.log("len of namelist, ", len)
     let nameList = [];
     
     for(i=0; i<names.length; i++){
@@ -229,8 +232,8 @@ router.get('/inputMaster', async(req,res)=>{
     const card = await getCard();
     //const medIndex = getRandNum(1) // 400 because the list contains 400 names of meds. dont' need this anymore now that the card is chosen in getCard()
     const sig =await createSig(card);
-    const providerIndex = getRandNum(7,Math.round(Math.random()));
-    
+    const providerIndex = getRandNum(16,Math.round(Math.random())); //math.round(math.random())) gives you 0 or 1 randomly
+    console.log('providerIndex', providerIndex)
 
 
     res.render('inputMaster', {
@@ -312,11 +315,14 @@ router.post('/submit', async(req,res)=>{
     const inputProvider = req.body.inputProvider;
     const inputNpi = req.body.inputNpi;
     const inputDea = req.body.inputDea;
-    //checkers
+    //checkers  
     const medChecker = req.body.medChecker;
-    const patientChecker = req.body.nameChecker;
+    const patientChecker = req.body.nameChecker; 
+    console.log("patientchecker", patientChecker);
+    console.log(req.body)
     const quantityChecker=req.body.quantityChecker;
     const providerChecker =req.body.providerChecker;
+    console.log('providerchecker',providerChecker);
     const sigChecker = req.body.sigChecker
     const npiChecker = '10********'
     const deaChecker = 'TL*******'

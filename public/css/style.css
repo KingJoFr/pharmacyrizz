@@ -330,10 +330,6 @@ textarea {
     background-color: white;
 }
 
-.main{
-    
-}
-
 .hero-image{
     display: grid;
     justify-content: center;
@@ -492,12 +488,7 @@ textarea {
 
 /* home article list*/
 
-.articles__heading{
-    
-  
-   
 
-}
 
 .article-ul{
     list-style-type: none;
@@ -649,59 +640,71 @@ textarea {
     justify-content: space-between;
     padding: 10px 0;
 }
-
+/******************************inputmaster styles**********************************/
 		.inputAppContainer {
-            border-radius: 5px;
-            border: 2px solid var(--light-blue);
+        border-radius: 20px;
+        border: 2px solid var(--light-blue);
         background-color: var(--llight-blue);
-        display: flex;
-        flex-direction: rows;
+        height: min-content;
+        max-height: max-content;
 		    width: 100%;
-		    height: auto;
-		    margin:0 auto;
+		    margin:0;
       }
-	  .formContainer {
-		    
-        display: flex;
-        flex-direction: rows;
-        height: auto;
+	  .formContainer { /*formInput and submitctn contained inside formContainer*/
+		  
+        display: grid;
+        grid-template-rows: 3fr 1fr;
         width: 100%;
         margin: 20px;
-
+        height: auto;
       }
+      .formInput{
+        height: 700px;
 
-    .rxContainer {
-        padding-top: 20px;
-        margin: 0 auto;
+			width: 100%;
+			margin: 0 auto;
+      display: block;
+      overflow: hidden;
+		}
+      .submitctn{
+        width: 50%;
         
-        width: 45%;
+        height: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+        margin: auto;
       }
-    .rxContainer p{
-        margin-bottom: 15px;
-        padding: 12px;
-      }
+    
+    
       
     label {
+      
         display: grid;
         grid-template-columns: 1fr 2fr;
       
-        line-height: 40px;
-        margin-bottom: 10px;
-      }
-    .formUnit {
-        margin: 50px auto;
+        align-items: center;
         
       }
+   
+    .formUnit {
       
-      
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 5px auto;
+        
+      }
+    .formUnit p{
+      margin-left: 20px;
+    }
     
 	  .inputFit{
-		height: 35px;
-        width: 73.5%;
-        line-height: 26px;
-        margin-left: 10px;
+		    display: block;
+        
+      
+      
 	  }
-	  option{
+	  /*option{
 		height: 60px;
 	  }
 	  select{
@@ -711,12 +714,9 @@ textarea {
           margin-left: 10px;
           line-height: 10px;
       }
-	  
-      .formInput{
-			width: 45%;
-			margin: 0 auto;
-		}
-    #nameError {
+	  */
+     
+/*    #nameError {
   display: none;
   font-size: 0.8em;
 }
@@ -741,14 +741,18 @@ input.invalid {
 
 .autocomplete-items {
   position: absolute;
-  border: 1px solid #d4d4d4;
+  border: 2px solid black /*#d4d4d4*/;
   border-bottom: none;
   border-top: none;
   z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
+  width: 98%;
+  top: 60%;
+  left: 0%;
+  right: 10%;
+  padding: 3px;
+  background-color: white;
+  line-height: 50px;
 }
 .autocomplete-items div {
   
@@ -791,12 +795,7 @@ input.invalid {
   display: none;
 }
 
-.submitctn{
-  width: 100%;
-  display: flex;
-  
-  
-}
+
 .submitbtn{
       
       margin: 0 auto;

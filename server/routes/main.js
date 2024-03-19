@@ -4,6 +4,8 @@ const Post = require('../models/Post');
 const Card = require('../models/Card');
 const uploadCards = require('./insertCardData');
 const Counter = require('../models/Counter')
+const MergedDeck = require('../models/MergedDeck');
+
 global.countId = '65c135c702cac41f7abf9a49'
 // routes
 
@@ -30,13 +32,15 @@ router.get('/flashcards', async(req,res)=> {
 
 router.put('/flashcards', async(req,res)=>{
 
-    const data = await Card.find();
-    const lastCard = await Card.find().sort({$natural:-1}).limit(1);
+    const data = await MergedDeck.find();
+    //const lastCard = await MergedDeck.find().sort({$natural:-1}).limit(1);
     const counter = await Counter.findById(countId);
-    const currentCard = data[counter.count];
+    //const currentCard = data[counter.count];
+    const deckLen = await MergedDeck.countDocuments();
+    
 
     //resets the count to zero if user reaches the last card and presses next
-    if (counter.count >= 200){
+    if (counter.count >= deckLen){
         await Counter.findByIdAndUpdate(countId,{
                 count : 0
     })
