@@ -9,7 +9,7 @@ const uploadCards = require('./insertCardData');
 const Counter = require('../models/Counter')
 const MergedDeck = require('../models/MergedDeck');
 const jwtSecret = process.env.JWT_SECRET;
-
+const landingLayout = "../views/layouts/landingLayout";
 global.countId = '65c135c702cac41f7abf9a49'
 
 
@@ -133,6 +133,7 @@ home
 */
 
 router.get('', async (req,res)=> {
+    res.redirect('../landingPage/landingPage')
     const locals = {
         title: "Home",
         description: "Pharmacyrizz.com a website for pharmacy techs"
@@ -140,7 +141,7 @@ router.get('', async (req,res)=> {
     }
     try{
         const data = await Post.find();
-        res.render('landingPage',{locals, data, currentRoute: "/"});
+        res.render('index',{locals, data, currentRoute: "/"});
 
     }catch(error){
         console.log(error);

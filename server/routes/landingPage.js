@@ -12,3 +12,9 @@ const MergedDeck = require('../models/MergedDeck');
 const jwtSecret = process.env.JWT_SECRET;
 
 global.countId = '65c135c702cac41f7abf9a49'
+
+router.get('/landingPage', async(req,res)=>{
+    res.render('landingPage');
+})
+
+module.exports = router;
