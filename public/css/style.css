@@ -607,6 +607,41 @@ textarea {
 
 /*Dashboard Admin*/
 
+.progressBar{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.cardViews{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.dashboard{
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+.cardTracker{
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem;
+  width: 40%;
+  height: 20vh;
+  overflow: scroll;
+  
+  border: 1px solid var(--light-blue);
+  background-color: var(--llight-blue);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
 .admin-title {
     display: flex;
     justify-content: space-between;
@@ -615,7 +650,20 @@ textarea {
 }
 
 .admin-posts {
-    padding: 0;
+   /* border: 2px solid darkblue;*/
+   border: 1px solid var(--light-blue);
+   width: 40%;  
+   height: 20vh;
+   overflow: scroll;
+    background-color: var(--llight-blue);
+    
+    border-radius: 20px;
+    padding: 1rem;
+    
+    /*box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;*/
+    /*box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;*/
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    
     margin: 0;
 
 }
@@ -643,12 +691,14 @@ textarea {
 /******************************inputmaster styles**********************************/
 		.inputAppContainer {
         border-radius: 20px;
-        border: 2px solid var(--light-blue);
+        border: 1px solid var(--light-blue);
         background-color: var(--llight-blue);
         height: min-content;
         max-height: max-content;
 		    width: 100%;
 		    margin:0;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        
       }
 	  .formContainer { /*formInput and submitctn contained inside formContainer*/
 		  
@@ -700,7 +750,7 @@ textarea {
     
 	  .inputFit{
 		    display: block;
-        
+            
       
       
 	  }
@@ -741,7 +791,7 @@ input.invalid {
 
 .autocomplete-items {
   position: absolute;
-  border: 2px solid black /*#d4d4d4*/;
+  border: 3px solid black /*#d4d4d4*/;
   border-bottom: none;
   border-top: none;
   z-index: 99;
@@ -749,7 +799,7 @@ input.invalid {
   width: 98%;
   top: 60%;
   left: 0%;
-  right: 10%;
+  right: 11%;
   padding: 3px;
   background-color: white;
   line-height: 50px;
@@ -758,7 +808,7 @@ input.invalid {
   
   cursor: pointer;
   background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
+  /*border-bottom: 2px solid black;*/
 }
 .autocomplete-items div:hover {
   /*when hovering an item:*/
@@ -807,6 +857,12 @@ input.invalid {
   width: 100%;
 }
     
+/* landing page styles */
+#section1{
+  height: 100%;
+  width: 100%;
+  border:2px solid black; 
+}
 
 
 

@@ -9,6 +9,20 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true,
+    },
+    permissions: {
+        type: Boolean,
+        required: true,
+    },
+    cardTracker: {
+        type: Map,
+        of:String,
+        required: false,
+        
+    },
+    emailOptin:{
+        type: Boolean,
+        required: true,
     }
    
 });

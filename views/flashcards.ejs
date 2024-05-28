@@ -42,7 +42,8 @@
 </script>
 
 <body>
-    <center><h1>Top 200 Drugs</h1></center>
+<p>Hi! <%-username%></p>
+    <center><h1 class="Title">Top 200 Drugs</h1></center>
     <div class="dot_line"></div>
     <div class = 'cardContainer'>
         
@@ -50,7 +51,7 @@
         
         
             <div class="cardInner" id = "cardInner">
-            
+                <p>counter on the front end is<%=counter.count%></p>
                  <p id ="drug_class">Class: <%=data[counter.count].dea_class %></p>
                  <p id ="drug_use">Use: <%=data[counter.count].use %></p> 
                  <p id ="generic" >Generic: <%= data[counter.count].generic %></p>
@@ -82,7 +83,7 @@
                 <form action="/flashcards?_method=PUT" method="POST" id ="myform">
                     <input type="text" name = 'position_num' id = 'position' value = '<%= counter.count %>' >
                     <button type="submit" value ="next" class = 'button-48' onClick="beforeSub()" role="button">next</button>
-                   
+                    <input type ='text' name="revealed" id="revealed" value="hidden">
                 </form>
                 <!--
                 <form action="/skip?_method=PUT" method ="POST">
@@ -99,6 +100,14 @@
 
     <!--javascript starts here-->
     <script type = "text/javascript">
+        //const title = getElementById('Title');
+        
+        /*if(userLogin){
+
+            title.
+        }*/
+        let revealed = document.getElementById('revealed');
+        revealed.style.visibility='hidden';
          let reset = document.getElementById('reset')
         reset.style.visibility ='hidden'
         let position = document.getElementById('position')
@@ -140,6 +149,7 @@
 
         function show_card(){
             stopSub();
+            cardViewTracking();
             brand = document.getElementById('brand');
             if (brand.style.visibility =='hidden'){
                 brand.style.visibility = 'visible'
@@ -147,8 +157,16 @@
                 brand.style.visibility = 'hidden'
             }
             
+               
         }
         
+        function cardViewTracking(){
+            
+            if(revealed.value =='hidden'){
+                revealed.value = 'revealed'
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", function (event) {
         var scrollpos = sessionStorage.getItem('scrollpos');
         if (scrollpos) {

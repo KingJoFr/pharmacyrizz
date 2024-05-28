@@ -247,11 +247,27 @@ const {isActiveRoute} = require('./server/helpers/routeHelpers');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
+    host:'smtp.titan.email',
+    port: 587,
+    secure: false,//use true for port 465 and false for all other ports
+    auth: {
+        user:'king@kingjonesfrazier.dev',
+        pass:'wzEx8dW-b$6N7E$',
+    },
+});
+
 //connect to DB
 connectDB();
 
-//app.use(cors());  This is not in the original Raddy Dev/Net Ninja tutorial
-
+//app.use(cors());  //This is not in the original Raddy Dev/Net Ninja tutorial
+app.use(
+    cors({
+      origin: "http://localhost:5000",
+      credentials: true,
+    })
+  );
 /*the following 2 statements are for parsing html
 app.use(express.json())
 The express. json() function is a middleware function used in Express. js 
@@ -345,13 +361,20 @@ like there is for user and post which makes me wonder how does it know how to st
 uses?
 */
 app.use(session({  // this 'session' is the express-session part
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    proxy : false, // set to true for heroku
     store: MongoStore.create({  // 'MongoStore' is the connect-mongo part
         mongoUrl: process.env.MONGODB_URI
     }),
-    //cookie: {maxAge: new Date (Date.now() + (3600000))}
+    ttl: (1*60*60),
+    cookie: {httpOnly: true,
+             secure: false, //required for cookies to work on https but it seems to prevent cookies from working on local host. so set to true for production and false for dev
+             maxAge: 1000 * 60 * 60, 
+             //sameSite: 'none' //look this up. it seems to be required for heroku
+            },
+    //name: 'secretname'
     //Date.now() - 30 * 24 * 60 * 60 * 1000
 }));
 

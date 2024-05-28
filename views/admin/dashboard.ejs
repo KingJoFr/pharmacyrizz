@@ -1,11 +1,15 @@
+<div class="username">hello <%=userProfile.username%></div>
+<div class="dot_line"></div>
+
 <div class = "admin-title">
     <h2>Posts</h2>
-    <a href="/add-post" class="button">+Add New</a>
-    <a href="/deluser" class="button">delete a user</a>
-</div>
-
-<ul class="admin-posts">
     
+    <!--<a href="/deluser" class="button">delete a user</a>-->
+</div>
+<div class="dashboard">
+<ul class="admin-posts">
+    <a href="/add-post" class="button">+Add New</a>
+    <div class="dot_line"></div>
     <% data.forEach(post =>{ %> 
         <li>
             <a href="/post/<%= post._id  %>">
@@ -15,10 +19,53 @@
                 <a href="/edit-post/<%= post._id %>" class="btn">Edit</a>
 
                
-                <form action="/delete-post/<%= post._id %>?_method=DELETE" method="POST">
+               <!-- <form action="/delete-post/<%= post._id %>?_method=DELETE" method="POST">
                     <input type="submit" value="Delete" class=" btn-delete">
-                </form>
+                </form>-->
             </div>
         </li>
     <% }) %>
 </ul>
+
+<div class="cardTracker" id="cardTrackerDiv">Card Tracker<div class='dot_line'></div></div>
+</div>
+<script>
+
+    async function loadCardTracker(){
+
+        async function getCardTracker(){
+        const response = await fetch('http://localhost:5000/userCardTracker')
+        const cardTrackerDeck = await response.json();
+        
+        return cardTrackerDeck
+        }
+    
+        let cardTrackerDiv = document.getElementById('cardTrackerDiv');
+        let deck = await getCardTracker();
+        for (const [key, value] of Object.entries(deck)) {
+            let card = document.createElement('div');
+            let progressBar = document.createElement('div');
+            progressBar.style.width = ('200px');
+            progressBar.style.height = ('20px');
+            progressBar.style.backgroundColor = ('grey');
+            progressBar.classList.add('progressBar');
+           
+            for(let i = 0; i <= parseInt(value); i++){
+                let progressPoint = document.createElement('div')
+                progressPoint.style.width = ('2px');
+                progressPoint.style.height = ('20px');
+                progressPoint.style.backgroundColor= ('lightgray');
+                progressBar.appendChild(progressPoint);
+            }
+            let cardText = document.createElement('p');
+            cardText.innerText = (`${key} : ${value}`);
+            card.classList.add('cardViews');
+            card.appendChild(cardText);
+            card.appendChild(progressBar);
+            cardTrackerDiv.appendChild(card);
+        }
+
+        
+}
+loadCardTracker();
+</script>

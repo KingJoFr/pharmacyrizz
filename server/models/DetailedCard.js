@@ -1,6 +1,8 @@
 /*
 I kept getting validation errors so I turned required to false.  Everything looks good in the database on mongodb site
 */
+//dcards(detailedcard) is the card info from the open fda api drug database. The merged deck(mcard) is the new 
+//deck created with the parts that I wanted to take from the detailed deck.
 const mongoose= require('mongoose');
 
 

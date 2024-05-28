@@ -2,35 +2,74 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
 const Card = require('../models/Card');
+const bcrypt = require('bcrypt'); // dont store plain text passwords in database
+const User = require('../models/User');
+const jwt = require('jsonwebtoken');
 const uploadCards = require('./insertCardData');
 const Counter = require('../models/Counter')
 const MergedDeck = require('../models/MergedDeck');
+const jwtSecret = process.env.JWT_SECRET;
 
 global.countId = '65c135c702cac41f7abf9a49'
+
+
+
 // routes
 
+// check login
+const authMiddleware = (req, res, next) => {
+    const token = req.cookies.token;  // checking if a token exists i believe
+    
+    
+    if(!token){  //so if there is no token then unauthorized
+        
+        return res.status(401).json({message: 'Unauthorized'});
+    }
 
+    try{
+        const decoded = jwt.verify(token, jwtSecret);
+        req.userId = decoded.userId;
+        next();
+    } catch(error){
+        
+         res.status(401).json({message: 'error caught'});
+
+    }
+} 
+
+
+//functions
 
 
 // flash cards routes
-router.get('/flashcards', async(req,res)=> {
+router.get('/flashcards',authMiddleware, async(req,res)=> {
+    
+    
+    const username = req.session.username;
+    
     const locals = {
+        
         title: 'flashcards',
         descriptions:'my flashcard app'
     }
     try{ //id: mongoose.ObjectId('65878f28e436dc72e08e88fe') 
         let counter = await Counter.findOne({_id:countId});
-        console.log('counter is first time', counter.count)
+    
         
-        const data = await Card.find();
+        const data = await MergedDeck.find();
         //const lastCard = await Card.find().sort({$natural:-1}).limit(1);
-        res.render('flashcards',{locals,data,counter});
+        
+        res.render('flashcards',{locals,data,counter,username});
     }catch(error){
         console.log(error);
 
 }});
 
-router.put('/flashcards', async(req,res)=>{
+router.put('/flashcards',authMiddleware, async(req,res)=>{
+    
+    const revealedCheck = req.body.revealed;
+    
+    
 
     const data = await MergedDeck.find();
     //const lastCard = await MergedDeck.find().sort({$natural:-1}).limit(1);
@@ -49,16 +88,26 @@ router.put('/flashcards', async(req,res)=>{
     await Counter.findByIdAndUpdate(countId,{
         count : req.body.position_num
     })
-}
+ }
     
-    console.log('counter is second time', counter.count)
+    
     //counter.set({count:{position}});
-    //await counter.save();
+    //await counter.save()
+
+    //update card views section // add one to counter.count because it's off by one from the front end counter
+    if(revealedCheck == 'revealed'){
+        const currentCard = data[counter.count +1].generic; 
+        const username = req.session.username;
+        const userProfile = await User.findOne({username:`${username}`});
+        let userViewsDeck = userProfile.cardTracker;
+        const currentCardViews = userViewsDeck.get(currentCard);
+        const updatedViews = parseInt(currentCardViews) +1;  
+        userViewsDeck.set(currentCard, updatedViews);
+        await userProfile.save();
+    }
+    
      
-     
-     
-     
-     res.redirect('flashcards');
+    res.redirect('flashcards');
 })
 
 router.put('/skip',async(req,res)=>{
@@ -91,7 +140,7 @@ router.get('', async (req,res)=> {
     }
     try{
         const data = await Post.find();
-        res.render('index',{locals, data, currentRoute: "/"});
+        res.render('landingPage',{locals, data, currentRoute: "/"});
 
     }catch(error){
         console.log(error);

@@ -1,0 +1,45 @@
+<header class="header">
+
+    <div class="mobileHeader">
+        <a href="/" > <img class="header__logo" src="/IMG/PharmacyRizz/pharmacy_rizz_logo_A.png"></a>
+        
+    </div>
+
+    <div>
+    <button onclick='openMenu()' class="hamburger">Menu</button>
+    <nav class="header_nav">
+      
+        <ul>
+            <!--<li><a href="/" class="header__logo"> <img class="header__img" src="/IMG/PharmacyRizz/pharmacy_rizz_logo_A.jpg" /></a></li>-->
+           
+            <li><a href="/" class="<%# isActiveRoute('/',currentRoute) %>">home</a></li>
+            <li><a href="/about" class="<%# isActiveRoute('/about',currentRoute) %>">about</a></li>
+            <li><a href="/contact" class="<%# isActiveRoute('/contact',currentRoute) %>">contact</a></li>
+            <li><a href="/flashcards">flashcards</a></li>
+            <li><a href="/inputmaster">input master</a></li>
+        </ul>
+
+    </nav>
+    </div>
+
+   <!-- <div class="header__button">
+        <button class="searchBtn" aria-expanded="false">
+            Search
+        </button>
+    </div>
+-->
+<script>
+const menu = document.querySelector(".header_nav");
+let open;
+
+function openMenu() {
+  if (open) {
+    menu.style.display = "none";
+    open = false;
+  } else if (!open) {
+    menu.style.display = "block";
+    open = true;
+  }
+}
+</script>
+</header>
